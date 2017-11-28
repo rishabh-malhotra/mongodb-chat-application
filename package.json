@@ -1,0 +1,23 @@
+{
+  "name": "mongodb-chat-application",
+  "version": "1.0.0",
+  "description": " Simple chat appplication using sockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabh-malhotra/mongodb-chat-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabh-malhotra/mongodb-chat-application/issues"
+  },
+  "homepage": "https://github.com/rishabh-malhotra/mongodb-chat-application#readme",
+  "dependencies": {
+    "mongodb": "^2.2.33",
+    "socket.io": "^2.0.3"
+  }
+}
