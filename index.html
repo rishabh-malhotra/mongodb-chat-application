@@ -31,7 +31,7 @@
             	</div>
             </div>
         </div>
-    </div>
+    </div></
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript">
     	
@@ -59,7 +59,7 @@
                 //Set status
                 status.textContent= s;
                 
-                if(status!== statusDefault){
+                if(s!== statusDefault){
 
                     var delay=setTimeout(function(){
                     
@@ -97,13 +97,48 @@
                         }
                     }
 
-
-
-
-
-
-
                  });
+
+                //Get status from the server
+
+                socket.on('status',function(){
+                    //get message status
+
+                    setStatus((typeof data=== 'object')? data.message : data);
+
+                    //if status is clear ,clear text
+
+                    if(data.clear){
+                        textarea.value= '';
+                    }
+
+                });
+
+                //handle input
+                textarea.addEventListener('keydown',function(){
+                    if(event.which ===13 && event.shiftKey==false){
+                        //emit to server
+
+                        socket.emit('input',{
+                            name:username.value,
+                            message:textarea.value
+                        });
+                        event.preventDefault();
+                    }
+                })
+
+                //Handle chat clear
+
+                clearBtn.addEventListener('click',function(){
+                    socket.emit('clear');
+                });
+
+                //clear Message
+
+                socket.on('cleared',function(){
+                    messages.textContent='';
+                });
+
              }
 
 
