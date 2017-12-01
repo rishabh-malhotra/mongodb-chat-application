@@ -36,7 +36,7 @@ mongo.connect('mongodb://127.0.0.1/MongoChat',function(err,db){
         }else{
 
             //Insert message
-            chat.insert({name: name,message: message},function(){
+            chat.insert({name: name, message: message},function(){
                 client.emit('output',[data]);
 
                 //send status object
@@ -55,5 +55,5 @@ mongo.connect('mongodb://127.0.0.1/MongoChat',function(err,db){
             socket.emit('cleared');
         });
     });
-     });
+});
 });
