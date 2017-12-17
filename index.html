@@ -33,7 +33,7 @@
         </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script type="text/javascript">
+    <script>
     	
     	(function(){
 
@@ -98,10 +98,10 @@
 
                 //Get status from the server
 
-                socket.on('status',function(){
+                socket.on('status',function(data){
                     //get message status
 
-                    setStatus((typeof data === 'object')? data.message : data);
+                     setStatus((typeof data === 'object')? data.message : data);
 
                     //if status is clear ,clear text
 
